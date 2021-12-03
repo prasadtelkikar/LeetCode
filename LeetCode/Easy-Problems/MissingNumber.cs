@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Easy_Problems
 {
+    /// <summary>
+    /// https://leetcode.com/problems/missing-number/
+    /// </summary>
     public class MissingNumber
     {
         public static void Main(string[] args)
