@@ -11,7 +11,7 @@ namespace Easy_Problems
         public static void Main(string[] args)
         {
             var arr = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
-            var result = FindLuckyLinqFunc3(arr);
+            var result = FindLuckyLinqFunc2(arr);
             Console.WriteLine(result);
         }
 
