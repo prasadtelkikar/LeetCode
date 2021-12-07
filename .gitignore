@@ -5,3 +5,5 @@
 /LeetCode/.vs/LeetCode/v17/.suo
 /LeetCode/Easy-Problems/bin/Debug/net5.0
 /LeetCode/Easy-Problems/obj
+*.v2
+*.v1
