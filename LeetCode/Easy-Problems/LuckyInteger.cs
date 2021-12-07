@@ -11,11 +11,11 @@ namespace Easy_Problems
         public static void Main(string[] args)
         {
             var arr = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
-            var result = FindLucky(arr);
+            var result = FindLuckyLinqFunc3(arr);
             Console.WriteLine(result);
         }
 
-        private static object FindLucky(int[] arr)
+        private static int FindLucky(int[] arr)
         {
             Dictionary<int, int> occurences = new Dictionary<int, int>();
             var result = -1;
@@ -34,7 +34,26 @@ namespace Easy_Problems
             }
 
             return result;
+        }
+        public static int FindLuckyLinqFunc1(int[] arr)
+        {
+            var occurences = arr
+            .GroupBy(x => x)
+            .Select(x => new { Index = x.Key, Count = x.Count() })
+            .Where(x => x.Index == x.Count);
 
+            return occurences.Any() ? occurences.OrderByDescending(x => x.Index).First().Index : -1;
+        }
+
+        //Removed extra select clause
+        public static int FindLuckyLinqFunc2(int[] arr)
+        {
+            var occurences = arr
+                .GroupBy(x => x)
+                .Where(x => x.Key == x.Count());
+
+            return occurences.Any() ?
+                occurences.OrderByDescending(x => x.Key).First().Key : -1;
         }
     }
 }
