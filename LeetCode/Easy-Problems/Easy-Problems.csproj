@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Easy_Problems</RootNamespace>
-    <StartupObject>Easy_Problems.KidsWithCandies</StartupObject>
+    <StartupObject>Easy_Problems.SmallerThanCurrentNumber</StartupObject>
   </PropertyGroup>
 
 </Project>

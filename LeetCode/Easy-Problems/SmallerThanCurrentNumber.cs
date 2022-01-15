@@ -17,8 +17,7 @@ namespace Easy_Problems
 
         private static int[] FindSmallerThanCurrentNumber(int[] inputs)
         {
-            var dict = inputs.ToDictionary(x => x, x => inputs.Count(y => y < x));
-            return dict.Values.ToArray();
+            return inputs.Select(x => inputs.Count(y => y < x)).ToArray();
         }
     }
 }
