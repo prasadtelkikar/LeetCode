@@ -22,5 +22,18 @@ namespace Easy_Problems
                 result += stones.Count(x => x.Equals(ch));
             return result;
         }
+
+        private static int NumJewelsInStones(string jewels, string stones)
+        {
+            Dictionary<char, int> result = new Dictionary<char, int>();
+            foreach (var ch in jewels.ToCharArray())
+                result.Add(ch, 0);
+
+            foreach (var stone in stones.ToCharArray())
+                if (result.ContainsKey(stone))
+                    result[stone]++;
+            return result.Values.Sum();
+
+        }
     }
 }

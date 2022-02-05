@@ -22,7 +22,7 @@ namespace Easy_Problems
                 if(words[i] == reverseWords[i])
                     return reverseWords[i];
             }
-            return null;
+            return string.Empty;
         }
     }
 }
