@@ -23,7 +23,7 @@ namespace Easy_Problems
             return result;
         }
 
-        private static int NumJewelsInStones(string jewels, string stones)
+        private static int NumJewelsInStonesDict(string jewels, string stones)
         {
             Dictionary<char, int> result = new Dictionary<char, int>();
             foreach (var ch in jewels.ToCharArray())
