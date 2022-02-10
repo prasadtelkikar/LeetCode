@@ -15,6 +15,7 @@ namespace Easy_Problems
             Console.WriteLine(sum);
         }
 
+        //Failed attempt
         private static int MinimumSum(int num)
         {
             int first2Numbers = num % 100;
@@ -24,6 +25,27 @@ namespace Easy_Problems
             int minSecond = Math.Min(second2Numbers, ReverseNumber(second2Numbers));
             return minFirst + minSecond;
         }
+
+        //Cheated
+        private static int MinimumSumFunc(int num)
+        {
+            List<int> shortNumbers = new List<int>();
+            while(num > 0)
+            {
+                var temp = num % 10;
+                shortNumbers.Add(temp);
+                num /= 10;
+            }
+
+            shortNumbers.Sort();
+            int num1 = shortNumbers[0] * 10 + shortNumbers[2];  //Because we already sorted an array, we will get smallest number, by index 0 * 10 + index 2
+            int num2 = shortNumbers[1] * 10 + shortNumbers[3];  //Second smallest number, because of sorting.
+
+            return num1 + num2;
+
+        }
+
+        //I can solve it in different way.
 
         private static int ReverseNumber(int number)
         {
