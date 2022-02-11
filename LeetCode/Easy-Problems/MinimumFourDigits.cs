@@ -11,7 +11,7 @@ namespace Easy_Problems
         public static void Main(string[] args)
         {
             var number = Convert.ToInt32(Console.ReadLine());
-            int sum = MinimumSum(number);
+            int sum = MinimumSumFunc1(number);
             Console.WriteLine(sum);
         }
 
@@ -44,8 +44,21 @@ namespace Easy_Problems
             return num1 + num2;
 
         }
+        
+        //Same test as above
+        private static int MinimumSumFunc1(int num)
+        {
+            int[] numArray = num.ToString()
+                .ToCharArray()
+                .Select(c => c - '0')
+                .OrderBy(x => x)
+                .ToArray();
 
-        //I can solve it in different way.
+            int num1 = numArray[0] * 10 + numArray[2];
+            int num2 = numArray[1] * 10 + numArray[3];
+            return num1+num2;
+        }
+
 
         private static int ReverseNumber(int number)
         {
