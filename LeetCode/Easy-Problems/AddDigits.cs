@@ -28,5 +28,10 @@ namespace Easy_Problems
         }
 
         //Try non recursive and linq(If possible)
+        private static int AddNumberFunc(int num)
+        {
+            //TODO: Complete this.
+            return int.MinValue;
+        }
     }
 }
