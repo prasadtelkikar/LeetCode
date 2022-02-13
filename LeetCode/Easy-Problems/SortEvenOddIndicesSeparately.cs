@@ -17,22 +17,25 @@ namespace Easy_Problems
         //This can be improved, Lets improve it
         private static int[] SortEvenOdd(int[] nums)
         {
-            var evenElements = nums.Where((x, i) => i % 2 == 0).OrderByDescending(y => y).ToArray();
-            var oddElements = nums.Where((x, i) => i % 2 != 0).OrderBy(y => y).ToArray();
-            var minLength = Math.Min(evenElements.Count(), oddElements.Count());
+            var evenElements = nums.Where((x, i) => i % 2 == 0).OrderBy(y => y).ToArray();
+            var oddElements = nums.Where((x, i) => i % 2 != 0).OrderByDescending(y => y).ToArray();
+            int evenLength = evenElements.Length;
+            int oddLength = oddElements.Length;
+
+            var minLength = Math.Min(evenLength, oddLength);
             List<int> result = new List<int>();
             for (int i = 0; i < minLength; i++)
             {
                 result.Add(evenElements[i]);
                 result.Add(oddElements[i]);
             }
-            if (minLength == evenElements.Count() && minLength == oddElements.Count())
+            if (minLength == evenLength && minLength == oddLength)
             {
             }
-            else if (minLength == oddElements.Count())
-                result.Add(evenElements[evenElements.Count() - 1]);
+            else if (minLength == oddLength)
+                result.Add(evenElements[evenLength - 1]);
             else
-                result.Add(oddElements[oddElements.Count() - 1]);
+                result.Add(oddElements[oddLength - 1]);
             return result.ToArray();
         }
     }
