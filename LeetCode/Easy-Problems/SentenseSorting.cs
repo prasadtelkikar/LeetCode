@@ -11,7 +11,7 @@ namespace Easy_Problems
         public static void Main(string[] args)
         {
             string input = Console.ReadLine();
-            string result = SortStringByLastChar(input);
+            string result = SortStringByLastCharFun(input);
             Console.WriteLine(result);
         }
 
@@ -24,21 +24,17 @@ namespace Easy_Problems
             return result;
         }
 
-        //Buggy code: Test case failing due to Index out of bound
         public static string SortStringByLastCharFun(string input)
         {
             StringBuilder sb = new StringBuilder();
-            List<string> list = new List<string>();
+            Dictionary<int, string> dict = new Dictionary<int, string>();
             foreach (var word in input.Split())
             {
                 var index = word.Last() - '0';
-                list[index] = word.Substring(0, word.Length - 1);
+                dict.Add(index, word.Substring(0, word.Length - 1));
             }
-
-            for (int i = 0; i < list.Count(); i++)
-                sb.Append(list[i] + " ");
-
-            return sb.ToString().Trim();
+            var result = string.Join(" ", dict.OrderBy(x => x.Key).Select(x => x.Value));
+            return result;
         }
     }
 }
