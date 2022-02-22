@@ -12,6 +12,7 @@ namespace Easy_Problems
         {
             string input = Console.ReadLine();
             bool isAscending = AreNumbersAscending(input);
+            Console.WriteLine(isAscending ? "Passed" : "Failed");
         }
 
         private static bool AreNumbersAscending(string s)
