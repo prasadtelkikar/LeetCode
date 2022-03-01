@@ -15,12 +15,22 @@ namespace Easy_Problems
             Console.WriteLine(output);
         }
 
-        //buggy code, solve it easy fix
         private static string CapitalizeTitle(string input)
         {
-            return string.Join(' ',input.Split().Select(x => char.ToUpper(x[0]) + x.Substring(1).ToLower()));
+            StringBuilder stringBuilder = new StringBuilder();
+            foreach (var item in input.Split())
+            {
+                if(item.Length > 2)
+                    stringBuilder.Append(char.ToUpper(item[0]) + item.Substring(1).ToLower() + ' ');
+                else
+                    stringBuilder.Append(item.ToLower() + ' ');
+            }
+            return stringBuilder.ToString().Trim();
         }
 
-        //Solve same problem with different approach.
+        private static string CapitalizeTitleLinq(string title)
+        {
+            return string.Join(' ', title.Split().Select(x => x.Length > 2 ? char.ToUpper(x[0]) + x.Substring(1).ToLower() : x.ToLower())).Trim();
+        }
     }
 }
