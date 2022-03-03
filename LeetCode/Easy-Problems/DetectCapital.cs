@@ -11,7 +11,6 @@ namespace Easy_Problems
             Console.WriteLine(isCapital);
         }
 
-        //Need clear understanding before I submit next attempt: https://leetcode.com/problems/detect-capital/
         private static bool DetectCapitalUse(string word)
         {
             return word.ToUpper() == word || word.ToLower() == word || (char.IsUpper(word[0]) &&  word.Substring(1) ==  word.Substring(1).ToLower());
