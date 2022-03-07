@@ -20,17 +20,27 @@ namespace Easy_Problems
             return input.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
         }
 
-        //Fix this code
+        //Failed few test cases
         private static int FindNumberOfSpacesFun(string input)
         {
             int result = 0;
-            for(int i = 0; i < input.Length || i == -1 ; i++)
+            while(true)
             {
-                int newSpaceIndex = input.IndexOf(' ', i);
+                if(string.IsNullOrWhiteSpace(input))
+                    break;
+                int newSpaceIndex = input.IndexOf(' ');
                 if(newSpaceIndex > 1)
                 {
-                    result++;
+                    string temp = input.Substring(0, newSpaceIndex);
                     input = input.Substring(newSpaceIndex+1);
+                    if(!string.IsNullOrWhiteSpace(temp))
+                        result++;
+                }   
+                else if(input.Length > 0)
+                {
+                    result++;
+                    break;
+
                 }
             }
             return result;
