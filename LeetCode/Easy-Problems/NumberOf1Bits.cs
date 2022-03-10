@@ -20,5 +20,17 @@ namespace Easy_Problems
             var str = Convert.ToString(input, 2);
             return str.Count(x => x == '1');
         }
+
+        private static int HammingWeightForLoop(uint input)
+        {
+            var str = Convert.ToString(input, 2);
+            int count = 0;
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] == '1')
+                    count++;
+            }
+            return count;
+        }
     }
 }
