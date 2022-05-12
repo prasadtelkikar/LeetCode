@@ -12,7 +12,7 @@ namespace Easy_Problems
         {
             ContainerMostWater water = new ContainerMostWater();
             var height = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
-            int result = water.MaxArea(height);
+            int result = water.MaxAreaSecondApproach(height);
             Console.WriteLine(result);
         }
 
@@ -31,6 +31,23 @@ namespace Easy_Problems
                 }
             }
             return maxArea;
+        }
+
+        private int MaxAreaSecondApproach(int[] height)
+        {
+            int start = 0;
+            int end = height.Length - 1;
+            int result = int.MinValue;
+            while(start < end)
+            {
+                var area = Math.Min(height[start], height[end]) * (end - start);
+                result = Math.Max(area, result);
+                if (height[start] < height[end])
+                    start++;
+                else
+                    end--;
+            }
+            return result;
         }
     }
 }
