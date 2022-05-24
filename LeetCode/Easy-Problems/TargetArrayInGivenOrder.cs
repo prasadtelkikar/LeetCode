@@ -38,5 +38,16 @@ namespace Easy_Problems
             }
             return list.ToArray();
         }
+
+        //Using List.Insert function: I was unaware of Insert functionality. It shifts element if element exists at a perticular index.
+        private int[] CreateTargetArrayUsingIsert(int[] nums, int[] index)
+        {
+            List<int> result = new List<int>();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                result.Insert(index[i], nums[i]);
+            }
+            return result.ToArray();
+        }
     }
 }
