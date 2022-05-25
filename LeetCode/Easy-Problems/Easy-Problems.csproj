@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Easy_Problems</RootNamespace>
-    <StartupObject>Easy_Problems.TargetArrayInGivenOrder</StartupObject>
+    <StartupObject>Easy_Problems.MinSeatMovement</StartupObject>
   </PropertyGroup>
 
 </Project>
