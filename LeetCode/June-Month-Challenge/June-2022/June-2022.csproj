@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>June_2022</RootNamespace>
-    <StartupObject>June_2022.IntersectionOfTwoLists</StartupObject>
+    <StartupObject>June_2022.MergeSortedArray</StartupObject>
   </PropertyGroup>
 
 </Project>
