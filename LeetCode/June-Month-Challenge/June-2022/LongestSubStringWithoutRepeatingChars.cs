@@ -11,7 +11,7 @@ namespace June_2022
         public static void Main(string[] args)
         {
             string s = Console.ReadLine();
-            int result = LengthOfLongestSubstring(s);
+            int result = LengthOfLongestSubStringFunc(s);
             Console.WriteLine(result);
         }
 
@@ -36,6 +36,29 @@ namespace June_2022
                 count = count > sub.Length ? count : sub.Length;
             }
             return count;
+        }
+
+        //Sliding window algorithm: https://youtu.be/4i6-9IzQHwo
+        private static int LengthOfLongestSubStringFunc(string s)
+        {
+            if(string.IsNullOrEmpty(s))
+                return 0;
+            int  j = 0, max = 0;
+            HashSet<char> chars = new HashSet<char>();  
+            for (int i = 0; i < s.Length; i++)
+            {
+                var ch  = s[i];
+                while(chars.Contains(ch))
+                {
+                    //Key point, do not remove just duplicate char
+                    //Remove all character, till the duplicate character
+                    chars.Remove(s[j]);
+                    j++;
+                }
+                chars.Add(ch);
+                max = Math.Max(max, i - j + 1);
+            }
+            return max;
         }
     }
 }
