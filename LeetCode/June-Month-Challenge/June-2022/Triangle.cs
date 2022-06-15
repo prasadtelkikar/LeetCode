@@ -19,7 +19,7 @@ namespace June_2022
             //This will not consider path...
             //Partial succeeded
             //var sum = triangle.Select(t => t.Min()).Sum();
-            var sum = FindPath(triangle);
+            var sum = TopDownApproach(triangle);
             Console.WriteLine(sum);
         }
 
@@ -50,5 +50,31 @@ namespace June_2022
             return result;
         }
         //Try to solve it using top-down, bottom up approach.
+
+        public static int TopDownApproach(IList<IList<int>> triangle)
+        {
+            for (int row = 1; row < triangle.Count; row++)
+            {
+                for (int column = 0; column < triangle[row].Count; column++)
+                {
+                    int sum = 0;
+                    if (column == 0)
+                    {
+                        sum = triangle[row][column] + triangle[row-1][column];
+                    }
+                    else if(column == triangle[row].Count - 1)
+                    {
+                        sum = triangle[row][column] + triangle[row-1][triangle[row - 1].Count - 1];
+                    }
+                    else
+                    {
+                        int min = Math.Min(triangle[row - 1][column], triangle[row - 1][column - 1]);
+                        sum = min + triangle[row][column];
+                    }
+                    triangle[row][column] = sum;
+                }
+            }
+            return triangle.Last().Min();
+        }
     }
 }
