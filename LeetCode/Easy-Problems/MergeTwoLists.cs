@@ -19,7 +19,7 @@ namespace Easy_Problems
             Console.WriteLine("null");
         }
 
-        public ListNode MergeTwoListsFunc(ListNode list1, ListNode list2)
+        public static ListNode MergeTwoListsFunc(ListNode list1, ListNode list2)
         {
             if (list1 == null)
                 return list2;
