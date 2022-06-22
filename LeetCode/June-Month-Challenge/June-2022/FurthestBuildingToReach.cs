@@ -18,10 +18,11 @@ namespace June_2022
             Console.WriteLine(result);
         }
 
-        //Time Limit exceed... Use priority queue
+        //C# does not have in-built Priority queue, so I used SortedList
         private static int FurthestBuilding(int[] height, int bricks, int ladders)
         {
-            Dictionary<int, int> temp = new Dictionary<int, int>();
+            //diff = key, i++ = Value
+            SortedList<int, int> temp = new SortedList<int, int>();
             int i = 0;
            // int maxValue = int.MinValue;
             for (i = 0; i < height.Length-1; i++)
@@ -30,15 +31,20 @@ namespace June_2022
                 if (diff > 0)
                 {
                     bricks -= diff;
-                    temp.Add(i, diff);
+                    if(temp.ContainsKey(diff))
+                        temp[diff]++;
+                    else
+                        temp.Add(diff, 1);
                     if(bricks < 0)
                     {
                         //We should use priority queue
-                        var maxValue = temp.Max(x => x.Value);
+                        var maxDiff = temp.Keys.Max();
                         ladders--;
-                        var top = temp.First(x => x.Value == maxValue);
-                        bricks += top.Value;
-                        temp.Remove(top.Key);
+                        bricks += maxDiff;
+                        if(temp[maxDiff] == 1)
+                            temp.Remove(maxDiff);
+                        else
+                            temp[maxDiff]--;
                     }
                     if (ladders < 0)
                         break;
