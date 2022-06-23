@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Easy_Problems
 {
@@ -10,20 +6,18 @@ namespace Easy_Problems
     {
         public static void Main(string[] args)
         {
-            //ListNode l1 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9)))))));
-            //ListNode l2 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))));
-            //Debug and check why it is not working
             ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
             ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
 
             ListNode l3 = AddTwoNumbers(l1, l2);
             for (ListNode l = l3; l!= null; l = l.next)
             {
-                Console.WriteLine(l.val + "-> ");
+                Console.Write(l.val + "-> ");
             }
         }
 
-        //Code duplication, Reverse  printed
+
+        //Refactor the code
         private static ListNode AddTwoNumbers(ListNode l1, ListNode l2)
         {
             ListNode result = null;
@@ -46,7 +40,10 @@ namespace Easy_Problems
                             temp = new ListNode(lastDigit);
                         }
                         else
+                        {
                             temp = new ListNode(currentSum);
+                            carry = 0;
+                        }
 
                         if (result == null)
                             result = temp;
@@ -70,8 +67,10 @@ namespace Easy_Problems
                             temp = new ListNode(lastDigit);
                         }
                         else
+                        {
                             temp = new ListNode(currentSum);
-
+                            carry = 0;
+                        }
 
                         if (result == null)
                             result = temp;
@@ -93,7 +92,10 @@ namespace Easy_Problems
                         temp = new ListNode(lastDigit);
                     }
                     else
+                    {
+                        carry = 0;
                         temp = new ListNode(currentSum);
+                    }
 
                     l1 = l1.next;
                     l2 = l2.next;
@@ -116,9 +118,23 @@ namespace Easy_Problems
                 result = temp;
             }
 
+            result = Reverse(result);
             return result;
         }
 
+        private static ListNode Reverse(ListNode head)
+        {
+            ListNode prev = null;
+            ListNode currentNode = head;
+            while(currentNode != null)
+            {
+                ListNode nextNode = currentNode.next;
+                currentNode.next = prev;
+                prev = currentNode;
+                currentNode = nextNode;
+            }
+            return prev;
+        }
         public class ListNode
         {
             public int val;
