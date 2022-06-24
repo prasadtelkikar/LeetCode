@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <StartupObject>Dream.FruitIntoBaskets</StartupObject>
+    <StartupObject>Dream.LongestUniqueSubstring</StartupObject>
   </PropertyGroup>
 
 </Project>
