@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <StartupObject>Dream.LicenseKeyFormatting</StartupObject>
+    <StartupObject>Dream.FruitIntoBaskets</StartupObject>
   </PropertyGroup>
 
 </Project>

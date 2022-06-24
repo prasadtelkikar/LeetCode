@@ -18,20 +18,14 @@ namespace Dream
         //Partial succeed. 0th portion of key should be of length k
         private static string FormatLicenseKey(string s, int k)
         {
-            var inputs = s.Split('-');
-            List<string> output = new List<string>();
-            output.Add(inputs[0].ToUpper());
-            var remainingKey = string.Join("", inputs.Skip(1));
-            for(int i = 0; i < remainingKey.Length; i += k)
-            {
-                string subString = "";
-                if(i+k >= remainingKey.Length)
-                    subString = remainingKey.Substring(i);
-                else
-                    subString = remainingKey.Substring(i, k);
-                output.Add(subString.ToUpper());
-            }
-            return string.Join("-", output);
+            var inputs = s.Replace("-", "").ToUpper();
+
+            StringBuilder sb = new StringBuilder(inputs);
+            int length = inputs.Length;
+            for (int i = k; i < length; i+=k)
+                sb.Insert(length-i, "-");
+
+            return sb.ToString();
         }
     }
 }

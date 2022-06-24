@@ -11,7 +11,7 @@ namespace Easy_Problems
             var digits = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
             //int[] result = GetPlusOneToIntArray(digits);
 
-            int[] result = PlusOne(digits);
+            int[] result = PlusOneFunWithoutReverse(digits);
             Console.WriteLine(string.Join(", ", result));
         }
 
@@ -66,6 +66,70 @@ namespace Easy_Problems
             else
                 result = result.Skip(1).ToArray();
             return result;
+        }
+
+        private static int[] PlusOneFun(int[] digits)
+        {
+            digits = digits.Reverse().ToArray();
+            int[] result = new int[digits.Length + 1];
+            for (int i = 0; i < digits.Length; i++)
+            {
+                if(i == 0)
+                {
+                    var sumOne = digits[i] + 1;
+                    result[i] = sumOne;
+                    result[i+1] = result[i] / 10;
+                    result[i] = result[i] % 10;
+                }
+                else
+                {
+                    var sum = digits[i] + result[i+1];
+                    result[i] += sum;
+                    result[i+1] = result[i] / 10;
+                    result[i] = result[i] % 10;
+                }   
+            }
+            result = result.Reverse().ToArray();
+            int temp = 0;
+            for (int i = 0; i < result.Length; i++, temp++)
+            {
+                if (result[i] != 0)
+                    break;
+            }
+            return result.Skip(temp).ToArray();
+        }
+
+
+
+        //No major difference in this two solutions
+        private static int[] PlusOneFunWithoutReverse(int[] digits)
+        {
+            int length = digits.Length;
+            int resultLength = length + 1;
+            int[] result = new int[resultLength];
+            for (int i = length-1, j = 0; i >= 0; i--, j++)
+            {
+                if(i == length-1)
+                {
+                    var sum = digits[i]+1;
+                    result[length-j] = sum;
+                    result[length-j-1] = result[length-j] / 10;
+                    result[length-j] = result[length-j] % 10;
+                }
+                else
+                {
+                    var sum = digits[i] + result[length-j-1];
+                    result[length-j] += sum;
+                    result[length-j-1] = result[length-j] / 10;
+                    result[length-j] = result[length-j] % 10;
+                }
+            }
+            int temp = 0;
+            for (int i = 0; i < result.Length; i++, temp++)
+                if (result[i] != 0)
+                    break;
+
+            return result.Skip(temp).ToArray();
         }
     }
 }
