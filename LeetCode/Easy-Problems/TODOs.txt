@@ -1,3 +1,2 @@
 ﻿NAndDoubleExists.cs -> Failed first attempt.
 LongestCommonPrefix.cs -> Not implemented
-AddBinary -> Solid Solution
