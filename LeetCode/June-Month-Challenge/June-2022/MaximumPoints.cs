@@ -21,7 +21,7 @@ namespace June_2022
         private static int MaxScore(int[] cardPoints, int k)
         {
             if(cardPoints.Length == 1)
-                return cardPoints[0];
+            return cardPoints[0];
             if (cardPoints.Length == k)
                 return cardPoints.Sum();
 
