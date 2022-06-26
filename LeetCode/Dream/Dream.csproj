@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <StartupObject>Dream.MultiplyString</StartupObject>
+    <StartupObject>Dream.RotateImage</StartupObject>
   </PropertyGroup>
 
 </Project>

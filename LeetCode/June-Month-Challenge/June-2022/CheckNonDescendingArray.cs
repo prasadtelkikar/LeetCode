@@ -37,9 +37,10 @@ namespace June_2022
             }
         }
 
-        private static bool CheckPosibility(int[] nums)
-        {
+        //This need some brain storming
+        //private static bool CheckPosibility(int[] nums)
+        //{
 
-        }
+        //}
     }
 }
