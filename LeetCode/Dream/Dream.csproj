@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <StartupObject>Dream.MinimumWindowSubstring</StartupObject>
+    <StartupObject>Dream.MissingRanges</StartupObject>
   </PropertyGroup>
 
 </Project>

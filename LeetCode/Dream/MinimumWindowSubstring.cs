@@ -17,15 +17,17 @@ namespace Dream
 
         private static string MinWindow(string input, string subStr)
         {
+            if (input.Length < subStr.Length)
+                return "";
             int left = 0;
             int right = 0;
             int minLength = int.MaxValue;
             Dictionary<string, int> keyValuePairs = new Dictionary<string, int>();
-            while(left <= right && right < input.Length)
+            while(left < input.Length && right < input.Length)
             {
                 string subString = string.Empty;
-                if (left+right+1 > input.Length)
-                    subString = input.Substring(left, input.Length - left - 1);
+                if (left+right >= input.Length)
+                    subString = input.Substring(left, input.Length - left);
                 else
                     subString = input.Substring(left, right+1);
 
