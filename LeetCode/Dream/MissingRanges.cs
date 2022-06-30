@@ -12,7 +12,7 @@ namespace Dream
             int[] nums = Console.ReadLine().Split(",").Select(int.Parse).ToArray();
             int lower = Convert.ToInt32(Console.ReadLine());
             int upper = Convert.ToInt32(Console.ReadLine());
-            IList<string> result = FindMissingRanges(nums, lower, upper);
+            IList<string> result = FindMissingRangesFunc(nums, lower, upper);
             Console.WriteLine(string.Join(", ", result));
         }
 
@@ -33,6 +33,31 @@ namespace Dream
             }
             if(upper > nums[nums.Length-1] && (upper - nums[nums.Length - 1]) > 1)
                 result.Add(Print(nums[nums.Length - 1]+1, upper));
+
+            return result;
+        }
+
+        private static IList<string> FindMissingRangesFunc(int[] nums, int lower, int upper)
+        {
+            List<string> result = new List<string>();
+            int next = lower;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] < next)
+                    continue;
+
+                if(nums[i] == next)
+                {
+                    next++;
+                    continue;
+                }
+                result.Add(Print(next, nums[i]-1));
+
+                next = nums[i]+1;
+            }
+
+            if (next <= upper) result.Add(Print(next, upper));
 
             return result;
         }
