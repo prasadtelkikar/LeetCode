@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <StartupObject>Dream.KClosestPointsFromOrigin</StartupObject>
+    <StartupObject>Dream.MeetingRoom2</StartupObject>
   </PropertyGroup>
 
 </Project>
