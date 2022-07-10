@@ -11,7 +11,7 @@ namespace Dream
         {
             string input = Console.ReadLine();
             string subStr = Console.ReadLine();
-            string output = MinWindow(input, subStr);
+            string output = MinWindowSecondAttempt(input, subStr);
             Console.WriteLine(output);
         }
 
@@ -55,6 +55,61 @@ namespace Dream
                     result = kvp.Key;
             }
             return result;
+        }
+
+        //TODO: Debug and fix the bug
+        //https://youtu.be/U1q16AFcjKs
+        private static string MinWindowSecondAttempt(string input, string subStr)
+        {
+            if (string.IsNullOrEmpty(subStr) || string.IsNullOrEmpty(input))
+                return string.Empty;
+
+            Dictionary<char, int> charCountsInSubStr = new Dictionary<char, int>();
+            foreach(char ch in subStr)
+            {
+                if(charCountsInSubStr.ContainsKey(ch))
+                    charCountsInSubStr[ch]++;
+                else
+                    charCountsInSubStr.Add(ch, 1);
+            }
+
+            int i = 0, j = 0;
+            int count = charCountsInSubStr.Count;
+            int leftBoundary = 0, rightBoundary = input.Length-1;
+            int min = subStr.Length;
+            bool found = false;
+
+            while(j < input.Length)
+            {
+                char rightChar = input[j++];
+                if(charCountsInSubStr.ContainsKey(rightChar))
+                {
+                    charCountsInSubStr[(rightChar)]--;
+                    if (charCountsInSubStr[rightChar] == 0)
+                        count--;
+                }
+                if (count > 0)
+                    continue;
+                while(count == 0)
+                {
+                    char startChar = input[i++];
+                    if(charCountsInSubStr.ContainsKey(startChar))
+                    {
+                        charCountsInSubStr[startChar]++;
+                        if(charCountsInSubStr[startChar]>0)
+                            count++;
+                    } 
+                }
+
+                if((j - i) <= min)
+                {
+                    found = true;
+                    leftBoundary = i;
+                    rightBoundary = j;
+                    min = j - i;
+                }
+            }
+            return !found ? "" : input.Substring(leftBoundary-1, rightBoundary-leftBoundary+1);
         }
     }
 }
