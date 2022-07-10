@@ -3,8 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>LeetCode_Medium</RootNamespace>
-    <StartupObject>LeetCode_Medium.DeepestLeavesSum</StartupObject>
+    <RootNamespace>Easy_II</RootNamespace>
+	<StartupObject>Easy_II.RangeSumOfBST</StartupObject>
   </PropertyGroup>
 
 </Project>
