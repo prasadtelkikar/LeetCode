@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeetCode_Medium.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace LeetCode_Medium
         public static void Main(string[] args)
         {
             int?[] input = new int?[] { 1, 2, 3, 4, 5, null, 6, 7, null, null, null, null, 8 };
-            TreeNode root = BuildTree(input);
+            TreeNode root = TreeHelper.BuildTree(input);
             int result = DeepestLeavesSumFunBFS(root);
             Console.WriteLine(result);
         }
@@ -87,57 +88,6 @@ namespace LeetCode_Medium
             int leftHeight = TreeHeight(root.left);
             int rightHeight = TreeHeight(root.right);
             return Math.Max(leftHeight, rightHeight)+1;
-        }
-
-        private static TreeNode BuildTree(int?[] input)
-        {
-            if(input.Length == 0)
-                return null;
-
-            Queue<TreeNode> queue = new Queue<TreeNode>();
-            Queue<int?> integerQueue = new Queue<int?>();
-
-            for (int i = 1; i < input.Length; i++)
-                integerQueue.Enqueue(input[i]);
-
-            TreeNode treeNode = new TreeNode(input[0].Value);
-            queue.Enqueue(treeNode);
-
-            while(integerQueue.Count > 0)
-            {
-                int? leftValue = integerQueue.Count == 0 ? null : integerQueue.Dequeue();
-                int? rightValue = integerQueue.Count == 0 ? null : integerQueue.Dequeue();
-                TreeNode currentNode = queue.Dequeue();
-
-                if(leftValue.HasValue)
-                {
-                    TreeNode left = new TreeNode(leftValue.Value);
-                    currentNode.left = left;
-                    queue.Enqueue(left);
-                }
-                if(rightValue.HasValue)
-                {
-                    TreeNode right = new TreeNode(rightValue.Value);
-                    currentNode.right = right;
-                    queue.Enqueue(right);
-                }
-            }
-
-            return treeNode;
-        }
-
-        protected class TreeNode
-        {
-            public int val;
-            public TreeNode left;
-            public TreeNode right;
-
-            public TreeNode(int val = 0, TreeNode left = null, TreeNode right = null)
-            {
-                this.val = val;
-                this.left = left;
-                this.right = right;
-            }
         }
 
         protected class NodeWithLevel

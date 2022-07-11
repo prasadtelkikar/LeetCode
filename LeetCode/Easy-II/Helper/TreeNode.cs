@@ -6,6 +6,7 @@ namespace Easy_II.Helper
 {
     public class TreeNode
     {
+        //Properties are not aligned with Leetcode code structure
         public int Value { get; set; }
         public TreeNode Left { get; set; }
         public TreeNode Right { get; set; }
