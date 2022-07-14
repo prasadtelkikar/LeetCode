@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>LeetCode_Medium</RootNamespace>
-    <StartupObject>LeetCode_Medium.BinaryTreeRightSideView</StartupObject>
+    <StartupObject>LeetCode_Medium.MaxLevelSumBinaryTree</StartupObject>
   </PropertyGroup>
 
 </Project>
