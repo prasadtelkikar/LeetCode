@@ -33,11 +33,11 @@ namespace Easy_II
             if (root == null)
                 return;
 
-            if (root.Value >= low && root.Value <= high)
-                s_sum += root.Value;
+            if (root.val >= low && root.val <= high)
+                s_sum += root.val;
 
-            CalculateSum(root.Left, low, high);
-            CalculateSum(root.Right, low, high);
+            CalculateSum(root.left, low, high);
+            CalculateSum(root.right, low, high);
         }
     }
 }

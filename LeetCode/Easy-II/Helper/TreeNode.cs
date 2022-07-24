@@ -6,21 +6,20 @@ namespace Easy_II.Helper
 {
     public class TreeNode
     {
-        //Properties are not aligned with Leetcode code structure
-        public int Value { get; set; }
-        public TreeNode Left { get; set; }
-        public TreeNode Right { get; set; }
+        public int val;
+        public TreeNode left;
+        public TreeNode right;
 
         public TreeNode(int value=0, TreeNode left=null, TreeNode right=null)
         {
-            this.Value = value;
-            this.Left = left;
-            this.Right = right;
+            this.val = value;
+            this.left = left;
+            this.right = right;
         }
 
         public override string ToString()
         {
-            return $"{ this.Value }";
+            return $"{ this.val }";
         }
     }
 }

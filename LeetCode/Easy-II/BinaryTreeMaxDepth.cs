@@ -20,7 +20,7 @@ namespace Easy_II
         {
             if(root == null)
                 return 0;
-            return Math.Max(MaxDepthRecursion(root.Left), MaxDepthRecursion(root.Right))+1;
+            return Math.Max(MaxDepthRecursion(root.left), MaxDepthRecursion(root.right))+1;
         }
 
         //Using BFS
@@ -40,10 +40,10 @@ namespace Easy_II
                     level++;
                 if(node != null)
                 {
-                    if (node.Left != null)
-                        queue.Enqueue(node.Left);
-                    if (node.Right != null)
-                        queue.Enqueue(node.Right);
+                    if (node.left != null)
+                        queue.Enqueue(node.left);
+                    if (node.right != null)
+                        queue.Enqueue(node.right);
                 }
                 else if (queue.Count > 0)
                     queue.Enqueue(null);

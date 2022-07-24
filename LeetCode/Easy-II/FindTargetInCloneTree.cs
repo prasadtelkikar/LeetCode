@@ -29,15 +29,15 @@ namespace Easy_II
                 var clonedLastElement = clonedQueue.Dequeue();
                 if(originalLastElement == target)
                     return clonedLastElement;
-                if(originalLastElement.Left != null)
+                if(originalLastElement.left != null)
                 {
-                    clonedQueue.Enqueue(clonedLastElement.Left);
-                    originalQueue.Enqueue(originalLastElement.Left);
+                    clonedQueue.Enqueue(clonedLastElement.left);
+                    originalQueue.Enqueue(originalLastElement.left);
                 }
-                if (originalLastElement.Right != null)
+                if (originalLastElement.right != null)
                 {
-                    clonedQueue.Enqueue(clonedLastElement.Right);
-                    originalQueue.Enqueue(originalLastElement.Right);
+                    clonedQueue.Enqueue(clonedLastElement.right);
+                    originalQueue.Enqueue(originalLastElement.right);
                 }
             }
             //This will never execute

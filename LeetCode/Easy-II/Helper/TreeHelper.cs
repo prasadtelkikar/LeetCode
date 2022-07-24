@@ -26,18 +26,27 @@ namespace Easy_II.Helper
                 if(leftValue.HasValue)
                 {
                     TreeNode left = new TreeNode(leftValue.Value);
-                    currentNode.Left = left;
+                    currentNode.left = left;
                     treeQueue.Enqueue(left);
                 }
                 if(rightValue.HasValue)
                 {
                     TreeNode right = new TreeNode(rightValue.Value);
-                    currentNode.Right = right;
+                    currentNode.right = right;
                     treeQueue.Enqueue(right);
                 }
             }
 
             return root;
+        }
+
+        public static void InOrderDisplay(TreeNode root)
+        {
+            if (root == null)
+                return;
+            InOrderDisplay(root.left);
+            Console.Write($"{root.val}, ");
+            InOrderDisplay(root.right);
         }
     }
 }

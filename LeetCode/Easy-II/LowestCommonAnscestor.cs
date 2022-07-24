@@ -21,11 +21,11 @@ namespace Easy_II
             TreeNode currentNode = root;
             while(currentNode != null)
             {
-                int parentNodeValue = currentNode.Value;
+                int parentNodeValue = currentNode.val;
                 if (p > parentNodeValue && q > parentNodeValue)
-                    currentNode = currentNode.Right;
+                    currentNode = currentNode.right;
                 else if (p < parentNodeValue && q < parentNodeValue)
-                    currentNode = currentNode.Left;
+                    currentNode = currentNode.left;
                 else
                     return currentNode;
             }

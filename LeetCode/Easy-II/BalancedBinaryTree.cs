@@ -1,7 +1,5 @@
 ﻿using Easy_II.Helper;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Easy_II
 {
@@ -25,11 +23,11 @@ namespace Easy_II
         {
             if (root == null)
                 return new TreeInfo(-1, true);
-            TreeInfo left = IsBalancedProcessed(root.Left);
+            TreeInfo left = IsBalancedProcessed(root.left);
             if (!left.isBalanced)
                 return new TreeInfo(-1, false);
 
-            TreeInfo right = IsBalancedProcessed(root.Right);
+            TreeInfo right = IsBalancedProcessed(root.right);
             if(!right.isBalanced)
                 return new TreeInfo(-1, false);
 

@@ -30,9 +30,9 @@ namespace Easy_II
             if (root == null)
                 return;
 
-            Inorder(root.Left);
-            inorder.Add(root.Value);
-            Inorder(root.Right);
+            Inorder(root.left) ;
+            inorder.Add(root.val);
+            Inorder(root.right);
         }
 
         private static List<int> InorderTravelWithoutRecursion(TreeNode root)
@@ -44,11 +44,11 @@ namespace Easy_II
                 while(root != null)
                 {
                     stack.Push(root);
-                    root = root.Left;
+                    root = root.left;
                 }
                 root = stack.Pop();
-                inorder.Add(root.Value);
-                root = root.Right;
+                inorder.Add(root.val);
+                root = root.right;
             }
             return inorder;
         }
