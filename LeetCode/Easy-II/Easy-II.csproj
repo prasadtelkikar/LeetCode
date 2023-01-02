@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Easy_II</RootNamespace>
-	<StartupObject>Easy_II.FindPivotalIndex</StartupObject>
+	<StartupObject>Easy_II.WordPattern</StartupObject>
   </PropertyGroup>
 
 </Project>
